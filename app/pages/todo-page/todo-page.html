@@ -10,9 +10,10 @@
       Todos
     </ion-card-header>
     <ion-card-content>
-      <ion-list>
-        <ion-item *ngFor="#item of items">{{item}}</ion-item>
-      </ion-list>
+        <ion-item *ngFor="#todo of todos">
+          <ion-label>{{todo.title}} - {{todo.completed}}</ion-label>
+          <ion-checkbox [(ngModel)]="todo.completed"></ion-checkbox>
+        </ion-item>
     </ion-card-content>
   </ion-card>
 </ion-content>
