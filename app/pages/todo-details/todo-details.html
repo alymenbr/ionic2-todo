@@ -1,17 +1,19 @@
 <ion-navbar *navbar>
   <ion-title>
-    Todo Page
+    Todo Details Page
   </ion-title>
 </ion-navbar>
 
 <ion-content class="home">
   <ion-card>
     <ion-card-header text-center>
-      Todos
+      {{todo.title}}
     </ion-card-header>
-    <ion-list>
-      <button ion-item *ngFor="#todo of todos" (click)='todoDetails($event, todo)'>{{todo.title}}</button>
-    </ion-list>
+    <ion-card-content>
+      {{todo.description}}
+      <br>
+      {{todo.completed}}
+    </ion-card-content>
 
   </ion-card>
 </ion-content>

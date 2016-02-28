@@ -1,5 +1,6 @@
 import {Page, NavController} from 'ionic-framework/ionic';
 import {TodoService} from '../../providers/todo-service/todo-service';
+import {TodoDetailsPage} from '../todo-details/todo-details'
 
 @Page({
   providers: [TodoService],
@@ -8,7 +9,11 @@ import {TodoService} from '../../providers/todo-service/todo-service';
 export class TodoPage {
   todos;
 
-  constructor(todoService: TodoService) {
+  constructor(todoService: TodoService, public nav: NavController) {
     this.todos = todoService.get();
+  }
+
+  todoDetails(event, openTodo){
+    this.nav.push(TodoDetailsPage, {todo: openTodo})
   }
 }
