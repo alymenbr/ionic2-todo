@@ -7,11 +7,13 @@ export class TodoDetailsPage {
   todo;
   index;
   todoPage;
+  isEditing;
 
   constructor(public params: NavParams, public nav: NavController){
     this.todo = params.get('todo');
     this.index = params.get('index');
     this.todoPage = params.get('todoPage');
+    this.isEditing = false;
   }
 
   deleteTodo(){

@@ -4,18 +4,40 @@
   </ion-title>
 </ion-navbar>
 
-<ion-content class="home">
+<!-- IS NOT EDITING -->
+<ion-content class="home" *ngIf='!isEditing'>
   <ion-card>
     <ion-card-header text-center>
-      {{todo.title}}
+      {{todo.title}} !isEditing
     </ion-card-header>
-    <ion-card-content>
+
+    <ion-card-content >
       <ion-item>
         <ion-label>{{todo.description}}</ion-label>
         <ion-checkbox [(ngModel)]='todo.completed'></ion-checkbox>
       </ion-item>
 
-        <button danger block (click)="deleteTodo()">Delete</button>
+      <button light block (click)="isEditing = !isEditing" *ngIf='!isEditing'>Edit</button>
+      <button danger block (click)="deleteTodo()">Delete</button>
+    </ion-card-content>
+
+  </ion-card>
+</ion-content>
+
+<!-- IS EDITING -->
+<ion-content class="home" *ngIf='isEditing'>
+  <ion-card>
+    <ion-card-header text-center>
+      <input type="text" [(ngModel)]="todo.title">
+    </ion-card-header>
+
+    <ion-card-content >
+      <ion-item>
+        <input type="text" [(ngModel)]="todo.description" value="todo.description">
+      </ion-item>
+
+      <button secondary block (click)="isEditing = !isEditing" *ngIf='isEditing'>Save</button>
+      <button danger block (click)="deleteTodo()">Delete</button>
     </ion-card-content>
 
   </ion-card>
