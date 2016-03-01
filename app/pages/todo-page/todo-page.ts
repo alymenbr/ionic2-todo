@@ -9,11 +9,11 @@ import {TodoDetailsPage} from '../todo-details/todo-details'
 export class TodoPage {
   todos;
 
-  constructor(todoService: TodoService, public nav: NavController) {
+  constructor(public todoService: TodoService, public nav: NavController) {
     this.todos = todoService.get();
   }
 
-  todoDetails(event, openTodo){
-    this.nav.push(TodoDetailsPage, {todo: openTodo})
+  todoDetails(event, openTodo, todoIndex){
+    this.nav.push(TodoDetailsPage, {todo: openTodo, index: todoIndex, todoPage: this});
   }
 }

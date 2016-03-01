@@ -10,7 +10,7 @@
       Todos
     </ion-card-header>
     <ion-list>
-      <button ion-item *ngFor="#todo of todos" (click)='todoDetails($event, todo)'>{{todo.title}}</button>
+      <button ion-item *ngFor="#todo of todos, #i = index" (click)='todoDetails($event, todo, i)'>{{todo.title}}</button>
     </ion-list>
 
   </ion-card>

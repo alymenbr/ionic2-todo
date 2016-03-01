@@ -10,9 +10,12 @@
       {{todo.title}}
     </ion-card-header>
     <ion-card-content>
-      {{todo.description}}
-      <br>
-      {{todo.completed}}
+      <ion-item>
+        <ion-label>{{todo.description}}</ion-label>
+        <ion-checkbox [(ngModel)]='todo.completed'></ion-checkbox>
+      </ion-item>
+
+        <button danger block (click)="deleteTodo()">Delete</button>
     </ion-card-content>
 
   </ion-card>
