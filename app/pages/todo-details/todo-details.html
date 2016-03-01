@@ -8,7 +8,7 @@
 <ion-content class="home" *ngIf='!isEditing'>
   <ion-card>
     <ion-card-header text-center>
-      {{todo.title}} !isEditing
+      {{todo.title}}
     </ion-card-header>
 
     <ion-card-content >
@@ -26,19 +26,21 @@
 
 <!-- IS EDITING -->
 <ion-content class="home" *ngIf='isEditing'>
-  <ion-card>
-    <ion-card-header text-center>
-      <input type="text" [(ngModel)]="todo.title">
-    </ion-card-header>
 
-    <ion-card-content >
-      <ion-item>
-        <input type="text" [(ngModel)]="todo.description" value="todo.description">
-      </ion-item>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Title</ion-label>
+      <ion-input type="text" [(ngModel)]="todo.title"></ion-input>
+    </ion-item>
 
-      <button secondary block (click)="isEditing = !isEditing" *ngIf='isEditing'>Save</button>
-      <button danger block (click)="deleteTodo()">Delete</button>
-    </ion-card-content>
+    <ion-item>
+      <ion-label floating>Description</ion-label>
+      <ion-input type="text" [(ngModel)]="todo.description"></ion-input>
+    </ion-item>
 
-  </ion-card>
+    <button secondary block (click)="isEditing = !isEditing">Save</button>
+    <button danger block (click)="deleteTodo()">Delete</button>
+
+  </ion-list>
+
 </ion-content>

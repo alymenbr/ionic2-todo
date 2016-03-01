@@ -5,12 +5,20 @@
 </ion-navbar>
 
 <ion-content class="home">
+
+  <ion-card>
+    <button block primary (click)='addTodo()'>New Todo</button>
+  </ion-card>
+
   <ion-card>
     <ion-card-header text-center>
       Todos
     </ion-card-header>
     <ion-list>
-      <button ion-item *ngFor="#todo of todos, #i = index" (click)='todoDetails($event, todo, i)'>{{todo.title}}</button>
+      <button ion-item *ngFor="#todo of todos, #i = index" (click)='todoDetails($event, todo, i)'>
+        {{todo.title}}
+        <ion-icon *ngIf="todo.completed" name="checkmark"></ion-icon>
+      </button>
     </ion-list>
 
   </ion-card>
